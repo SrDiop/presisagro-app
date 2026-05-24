@@ -204,3 +204,41 @@ Proyecto desarrollado con fines académicos aplicando conceptos de:
 # ⭐ Estado del Proyecto
 
 ✅ Prototipo funcional finalizado
+
+---
+
+# 📸 Vista del Sistema
+
+## 🔐 Login
+
+![Login](assets/login.png)
+
+---
+
+## 📊 Dashboard Principal
+
+![Dashboard](assets/dashboard.png)
+
+---
+
+## 🌾 Gestión de Cultivos
+
+![Cultivos](assets/cultivos.png)
+
+---
+
+## 💰 Gestión Financiera
+
+![Costos](assets/costos.png)
+
+---
+
+## 🛒 Gestión Comercial
+
+![Ventas](assets/ventas.png)
+
+---
+
+## 📈 Reportes Ejecutivos
+
+![Reportes](assets/reportes.png)
