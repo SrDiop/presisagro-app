@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PRESISAGRO APP</title>
+
+    <link rel="stylesheet" href="styles.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <script src="https://kit.fontawesome.com/7b6b59e2b3.js" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+    <body>
+
+    <!-- LOGIN -->
+
+    <section id="login-screen">
+
+        <div class="login-left">
+
+            <div class="overlay"></div>
+
+            <div class="login-content">
+
+                <h1>PRESISAGRO</h1>
+
+                <p>
+                    Plataforma inteligente para la gestión agrícola,
+                    monitoreo de cultivos, análisis financiero
+                    y visualización estratégica de producción.
+                </p>
+
+                <div class="login-features">
+
+                    <div class="feature">
+                        <i class="fa-solid fa-chart-line"></i>
+                        Dashboard inteligente
+                    </div>
+
+                    <div class="feature">
+                        <i class="fa-solid fa-seedling"></i>
+                        Gestión agrícola
+                    </div>
+
+                    <div class="feature">
+                        <i class="fa-solid fa-cloud-sun"></i>
+                        Monitoreo climático
+                    </div>
+
+                    <div class="feature">
+                        <i class="fa-solid fa-money-bill-wave"></i>
+                        Control financiero
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="login-right">
+
+            <div class="login-box">
+
+                <div class="login-logo">
+
+                    <div class="circle-logo">
+                        <i class="fa-solid fa-leaf"></i>
+                    </div>
+
+                    <h2>Bienvenido</h2>
+
+                    <p>Accede a la plataforma PRESISAGRO</p>
+
+                </div>
+
+                <div class="input-group">
+
+                    <label>Usuario</label>
+
+                    <div class="input-icon">
+
+                        <i class="fa-solid fa-user"></i>
+
+                        <input type="text" value="ADMIN AGRICOLA" readonly>
+
+                    </div>
+
+                </div>
+
+                <div class="input-group">
+
+                    <label>Contraseña</label>
+
+                    <div class="input-icon">
+
+                        <i class="fa-solid fa-lock"></i>
+
+                        <input type="password" value="123456789" readonly>
+
+                    </div>
+
+                </div>
+
+                <button class="login-btn" onclick="ingresarSistema()">
+
+                    <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                    Iniciar sesión
+
+                </button>
+
+                <div class="login-footer">
+
+                    Sistema inteligente de administración agrícola
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <div id="app-container" style="display:none;">
+
+    <!-- LOADER -->
+
+    <div id="loader">
+
+        <div class="spinner"></div>
+
+        <h2>PRESISAGRO APP</h2>
+
+    </div>
+
+    <div class="container">
+
+        <!-- SIDEBAR -->
+
+        <aside class="sidebar">
+
+            <div class="logo">
+
+                <h2>PRESISAGRO</h2>
+
+                <p>Sistema de agricultura inteligente</p>
+
+            </div>
+
+            <nav>
+
+                <button class="nav-btn active-btn" onclick="mostrarSeccion('inicio', this)">
+                    <i class="fa-solid fa-house"></i>
+                    Inicio
+                </button>
+
+                <button class="nav-btn" onclick="mostrarSeccion('cultivos', this)">
+                    <i class="fa-solid fa-seedling"></i>
+                    Cultivos
+                </button>
+
+                <button class="nav-btn" onclick="mostrarSeccion('costos', this)">
+                    <i class="fa-solid fa-money-bill-wave"></i>
+                    Costos
+                </button>
+
+                <button class="nav-btn" onclick="mostrarSeccion('cosechas', this)">
+                    <i class="fa-solid fa-wheat-awn"></i>
+                    Cosechas
+                </button>
+
+                <button class="nav-btn" onclick="mostrarSeccion('ventas', this)">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    Ventas
+                </button>
+
+                <button class="nav-btn" onclick="mostrarSeccion('reportes', this)">
+                    <i class="fa-solid fa-chart-line"></i>
+                    Reportes
+                </button>
+
+            </nav>
+
+        </aside>
+
+        <!-- MAIN -->
+
+        <main class="main-content">
+
+            <!-- INICIO -->
+
+            <section id="inicio" class="section active">
+
+                <div class="topbar">
+
+                    <div>
+
+                        <h1>Dashboard Agrícola</h1>
+
+                        <p>Visualización general de la operación agrícola</p>
+
+                    </div>
+
+                    <div class="topbar-actions">
+
+                        <div class="status">
+                            Sistema operativo
+                        </div>
+
+                        <button class="logout-btn" onclick="cerrarSesion()">
+
+                            <i class="fa-solid fa-right-from-bracket"></i>
+                            Cerrar sesión
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <!-- KPI -->
+
+                <div class="cards">
+
+                    <div class="card">
+
+                        <i class="fa-solid fa-seedling"></i>
+
+                        <h3>12</h3>
+
+                        <p>Cultivos activos</p>
+
+                    </div>
+
+                    <div class="card">
+
+                        <i class="fa-solid fa-money-bill-wave"></i>
+
+                        <h3>$4.5M</h3>
+
+                        <p>Ventas mensuales</p>
+
+                    </div>
+
+                    <div class="card">
+
+                        <i class="fa-solid fa-chart-column"></i>
+
+                        <h3>84%</h3>
+
+                        <p>Rentabilidad</p>
+
+                    </div>
+
+                    <div class="card">
+
+                        <i class="fa-solid fa-cloud-sun-rain"></i>
+
+                        <h3>24°C</h3>
+
+                        <p>Clima promedio</p>
+
+                    </div>
+
+                </div>
+
+                <!-- DASHBOARD -->
+
+                <div class="dashboard-grid">
+
+                    <div class="chart-container">
+
+                        <h2>Comportamiento de ventas</h2>
+
+                        <canvas id="ventasChart"></canvas>
+
+                    </div>
+
+                    <div class="activity">
+
+                        <h2>Actividad reciente</h2>
+
+                        <div class="activity-item">
+                            Nuevo cultivo de café registrado
+                        </div>
+
+                        <div class="activity-item">
+                            Venta completada por $2.000.000
+                        </div>
+
+                        <div class="activity-item">
+                            Actualización de costos operativos
+                        </div>
+
+                        <div class="activity-item">
+                            Cosecha de maíz finalizada
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- TABLA -->
+
+                <div class="table-container">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+                                <th>Finca</th>
+                                <th>Cultivo</th>
+                                <th>Producción</th>
+                                <th>Estado</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+                                <td>La Esperanza</td>
+                                <td>Café</td>
+                                <td>1.200 Kg</td>
+                                <td><span class="badge success">Óptimo</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>El Recuerdo</td>
+                                <td>Maíz</td>
+                                <td>900 Kg</td>
+                                <td><span class="badge warning">Seguimiento</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>Santa María</td>
+                                <td>Arroz</td>
+                                <td>1.500 Kg</td>
+                                <td><span class="badge success">Óptimo</span></td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+            <!-- CULTIVOS -->
+
+            <section id="cultivos" class="section">
+
+                <div class="topbar">
+
+                    <div>
+                        <h1>Gestión de Cultivos</h1>
+                        <p>Monitoreo y control agrícola inteligente</p>
+                    </div>
+
+                </div>
+
+                <div class="cards">
+
+                    <div class="card">
+                        <i class="fa-solid fa-leaf"></i>
+                        <h3>35 Ha</h3>
+                        <p>Área sembrada</p>
+                    </div>
+
+                    <div class="card">
+                        <i class="fa-solid fa-droplet"></i>
+                        <h3>78%</h3>
+                        <p>Humedad promedio</p>
+                    </div>
+
+                    <div class="card">
+                        <i class="fa-solid fa-temperature-half"></i>
+                        <h3>24°C</h3>
+                        <p>Temperatura</p>
+                    </div>
+
+                    <div class="card">
+                        <i class="fa-solid fa-chart-line"></i>
+                        <h3>92%</h3>
+                        <p>Productividad</p>
+                    </div>
+
+                </div>
+
+                <div class="dashboard-grid">
+
+                    <div class="chart-container">
+
+                        <h2>Producción por cultivo</h2>
+
+                        <canvas id="cultivosChart"></canvas>
+
+                    </div>
+
+                    <div class="activity">
+
+                        <h2>Estado de cultivos</h2>
+
+                        <div class="activity-item">
+                            Café presenta crecimiento óptimo
+                        </div>
+
+                        <div class="activity-item">
+                            Maíz requiere seguimiento hídrico
+                        </div>
+
+                        <div class="activity-item">
+                            Arroz mantiene productividad estable
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="table-container">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+                                <th>Cultivo</th>
+                                <th>Hectáreas</th>
+                                <th>Producción</th>
+                                <th>Estado</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+                                <td>Café Premium</td>
+                                <td>12</td>
+                                <td>1.200 Kg</td>
+                                <td><span class="badge success">Óptimo</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>Maíz Amarillo</td>
+                                <td>8</td>
+                                <td>900 Kg</td>
+                                <td><span class="badge warning">Seguimiento</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>Arroz</td>
+                                <td>15</td>
+                                <td>1.500 Kg</td>
+                                <td><span class="badge success">Óptimo</span></td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+            <!-- COSTOS -->
+
+            <section id="costos" class="section">
+
+                <div class="topbar">
+
+                    <div>
+                        <h1>Análisis de Costos</h1>
+                        <p>Control financiero y gastos operativos</p>
+                    </div>
+
+                </div>
+
+                <div class="cards">
+
+                    <div class="card">
+                        <i class="fa-solid fa-sack-dollar"></i>
+                        <h3>$2.1M</h3>
+                        <p>Costos totales</p>
+                    </div>
+
+                    <div class="card">
+                        <i class="fa-solid fa-truck"></i>
+                        <h3>$600K</h3>
+                        <p>Transporte</p>
+                    </div>
+
+                    <div class="card">
+                        <i class="fa-solid fa-people-group"></i>
+                        <h3>$700K</h3>
+                        <p>Mano de obra</p>
+                    </div>
+
+                    <div class="card">
+                        <i class="fa-solid fa-seedling"></i>
+                        <h3>$800K</h3>
+                        <p>Fertilizantes</p>
+                    </div>
+
+                </div>
+
+                <div class="dashboard-grid">
+
+                    <div class="chart-container">
+
+                        <h2>Distribución de costos</h2>
+
+                        <canvas id="costosChart"></canvas>
+
+                    </div>
+
+                    <div class="activity">
+
+                        <h2>Resumen financiero</h2>
+
+                        <div class="activity-item">
+                            Costos operativos aumentaron 5%
+                        </div>
+
+                        <div class="activity-item">
+                            Transporte optimizado esta semana
+                        </div>
+
+                        <div class="activity-item">
+                            Reducción en costos de insumos
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- COSECHAS -->
+
+            <section id="cosechas" class="section">
+
+                <div class="topbar">
+
+                    <div>
+                        <h1>Gestión de Cosechas</h1>
+                        <p>Seguimiento de recolección y productividad</p>
+                    </div>
+
+                </div>
+
+                <div class="cards">
+
+                    <div class="card">
+                        <i class="fa-solid fa-wheat-awn"></i>
+                        <h3>3.5T</h3>
+                        <p>Producción total</p>
+                    </div>
+
+                    <div class="card">
+                        <i class="fa-solid fa-clock"></i>
+                        <h3>12 días</h3>
+                        <p>Promedio recolección</p>
+                    </div>
+
+                    <div class="card">
+                        <i class="fa-solid fa-chart-simple"></i>
+                        <h3>91%</h3>
+                        <p>Eficiencia</p>
+                    </div>
+
+                </div>
+
+                <div class="dashboard-grid">
+
+                    <div class="timeline">
+
+                        <div class="timeline-item">
+                            <h3>Cosecha Café Premium</h3>
+                            <p>1.200 Kg recolectados exitosamente</p>
+                        </div>
+
+                        <div class="timeline-item">
+                            <h3>Cosecha Maíz Amarillo</h3>
+                            <p>900 Kg recolectados</p>
+                        </div>
+
+                        <div class="timeline-item">
+                            <h3>Cosecha Arroz</h3>
+                            <p>1.500 Kg finalizados</p>
+                        </div>
+
+                    </div>
+
+                    <div class="chart-container">
+
+                        <h2>Rendimiento cosechas</h2>
+
+                        <canvas id="cosechasChart"></canvas>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- VENTAS -->
+
+            <section id="ventas" class="section">
+
+                <div class="topbar">
+
+                    <div>
+                        <h1>Gestión Comercial</h1>
+                        <p>Control de ventas y comercialización</p>
+                    </div>
+
+                </div>
+
+                <div class="cards">
+
+                    <div class="card">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <h3>152</h3>
+                        <p>Ventas realizadas</p>
+                    </div>
+
+                    <div class="card">
+                        <i class="fa-solid fa-dollar-sign"></i>
+                        <h3>$4.5M</h3>
+                        <p>Ingresos generados</p>
+                    </div>
+
+                    <div class="card">
+                        <i class="fa-solid fa-users"></i>
+                        <h3>48</h3>
+                        <p>Clientes activos</p>
+                    </div>
+
+                    <div class="card">
+                        <i class="fa-solid fa-chart-pie"></i>
+                        <h3>84%</h3>
+                        <p>Crecimiento</p>
+                    </div>
+
+                </div>
+
+                <div class="dashboard-grid">
+
+                    <div class="table-container">
+
+                        <table>
+
+                            <thead>
+
+                                <tr>
+                                    <th>Producto</th>
+                                    <th>Cliente</th>
+                                    <th>Valor</th>
+                                    <th>Estado</th>
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+                                    <td>Café Premium</td>
+                                    <td>Distribuidora Agro SAS</td>
+                                    <td>$2.000.000</td>
+                                    <td><span class="badge success">Pagado</span></td>
+                                </tr>
+
+                                <tr>
+                                    <td>Maíz Amarillo</td>
+                                    <td>Mercados Centrales</td>
+                                    <td>$1.500.000</td>
+                                    <td><span class="badge success">Pagado</span></td>
+                                </tr>
+
+                                <tr>
+                                    <td>Arroz</td>
+                                    <td>AgroFoods</td>
+                                    <td>$1.000.000</td>
+                                    <td><span class="badge pending">Pendiente</span></td>
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                    <div class="chart-container">
+
+                        <h2>Crecimiento comercial</h2>
+
+                        <canvas id="ventasDetalleChart"></canvas>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- REPORTES -->
+
+            <section id="reportes" class="section">
+
+                <div class="topbar">
+
+                    <div>
+                        <h1>Panel Ejecutivo</h1>
+                        <p>Análisis financiero y productividad general</p>
+                    </div>
+
+                </div>
+
+                <div class="report-grid">
+
+                    <div class="report-card">
+                        <h3>Total Ventas</h3>
+                        <p>$4.5M</p>
+                    </div>
+
+                    <div class="report-card">
+                        <h3>Total Costos</h3>
+                        <p>$2.1M</p>
+                    </div>
+
+                    <div class="report-card">
+                        <h3>Ganancia</h3>
+                        <p>$2.4M</p>
+                    </div>
+
+                    <div class="report-card">
+                        <h3>Rentabilidad</h3>
+                        <p>84%</p>
+                    </div>
+
+                </div>
+
+                <div class="dashboard-grid">
+
+                    <div class="chart-container">
+
+                        <h2>Rentabilidad general</h2>
+
+                        <canvas id="rentabilidadChart"></canvas>
+
+                    </div>
+
+                    <div class="chart-container">
+
+                        <h2>Producción anual</h2>
+
+                        <canvas id="anualChart"></canvas>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <!-- TOAST -->
+
+    <div id="toast">
+        Registro guardado correctamente
+    </div>
+
+    </div>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
